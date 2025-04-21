@@ -18,6 +18,9 @@ public class RegistrationPage extends ParentPOM {
     @FindBy(id = "passwordInput")
     private WebElement passwordInput;
 
+    @FindBy(xpath = "//input[3]")
+    private WebElement registerButton;
+
     public RegistrationPage(WebDriver driver, String title) {
         super(driver, title);
         alertWait = new WebDriverWait(driver, Duration.ofSeconds(2));
@@ -29,6 +32,10 @@ public class RegistrationPage extends ParentPOM {
 
     public void enterPassword(String password) {
         passwordInput.sendKeys(password);
+    }
+
+    public void clickRegisterButton() {
+        registerButton.click();
     }
 
     public String getTitle() {

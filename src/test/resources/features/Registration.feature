@@ -7,12 +7,14 @@ Feature: User Registration
   Scenario: Valid credentials should allow for Planetarium registration
     When    the user provides username "Diana" while registering
     And     the user provides password "D1ana" while registering
+    When    the user clicks the register button
     Then    an alert should appear saying "Account created successfully"
     And     the user should be redirected to the login page
 
   Scenario Outline: Invalid credentials should not allow for Planetarium registration
     When    the user provides username "<username>" while registering
     And     the user provides password "<password>" while registering
+    When    the user clicks the register button
     Then    an alert should appear saying "<message>"
     And     the user should remain on the register page
 

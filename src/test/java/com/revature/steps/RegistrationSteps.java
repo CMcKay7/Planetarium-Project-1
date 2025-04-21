@@ -26,6 +26,10 @@ public class RegistrationSteps {
     public void the_user_provides_password_while_registering(String password) {
         registrationPage.enterPassword(password);
     }
+    @When("the user clicks the register button")
+    public void the_user_clicks_the_register_button() {
+        registrationPage.clickRegisterButton();
+    }
     @Then("an alert should appear saying {string}")
     public void an_alert_should_appear_saying(String expectedMessage) {
         registrationPage.waitForAlert();
