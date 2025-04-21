@@ -1,0 +1,40 @@
+package com.revature;
+
+import com.revature.pom.LoginPage;
+import com.revature.pom.RegistrationPage;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.time.Duration;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        features = "classpath:features",
+        glue = "com.revature.steps",
+        plugin = {"pretty", "html:src/test/resources/reports/Cucumber-Report.html"}
+)
+public class TestRunner {
+
+    public static WebDriver driver;
+    public static LoginPage loginPage;
+    public static RegistrationPage registrationPage;
+
+    @BeforeClass
+    public static void setup() {
+        driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+        loginPage = new LoginPage(driver,"Planetarium Login");
+        registrationPage = new RegistrationPage(driver, "Account Creation");
+
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        if(driver != null) driver.quit();
+    }
+}
