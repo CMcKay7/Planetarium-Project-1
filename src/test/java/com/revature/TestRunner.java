@@ -1,5 +1,6 @@
 package com.revature;
 
+import com.revature.pom.HomePage;
 import com.revature.pom.LoginPage;
 import com.revature.pom.RegistrationPage;
 import io.cucumber.junit.Cucumber;
@@ -23,6 +24,7 @@ public class TestRunner {
     public static WebDriver driver;
     public static LoginPage loginPage;
     public static RegistrationPage registrationPage;
+    public static HomePage homePage;
 
     @BeforeClass
     public static void setup() {
@@ -30,7 +32,7 @@ public class TestRunner {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         loginPage = new LoginPage(driver,"Planetarium Login");
         registrationPage = new RegistrationPage(driver, "Account Creation");
-
+        homePage = new HomePage(driver, "Home");
     }
 
     @AfterClass
