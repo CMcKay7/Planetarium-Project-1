@@ -38,18 +38,13 @@ public class AddCelestialSteps {
     public void the_user_provides_moon_name_for_creation(String moonName) {
         homePage.enterMoonName(moonName);
     }
-    @When("the user enters {string}")
-    public void the_user_enters(String id) {
-        homePage.enterMoonId(id);
-    }
     @When("the user presses the Submit Moon button")
     public void the_user_presses_the_submit_moon_button() {
         homePage.clickSubmitButton();
     }
     @When("the user provides id {string} for creation")
-    public void the_user_provides_for_creation(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_user_provides_for_creation(String id) {
+        homePage.enterMoonId(id);
     }
     @When("the user provides an image {string}")
     public void the_user_provides_an(String filePath) {

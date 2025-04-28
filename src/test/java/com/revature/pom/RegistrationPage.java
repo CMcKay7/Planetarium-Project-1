@@ -23,7 +23,7 @@ public class RegistrationPage extends ParentPOM {
 
     public RegistrationPage(WebDriver driver, String title) {
         super(driver, title);
-        alertWait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        alertWait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void enterUsername(String username) {

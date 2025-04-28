@@ -1,19 +1,19 @@
 package com.revature.pom;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class HomePage extends ParentPOM{
 
     private WebDriverWait alertWait;
 
-    @FindBy(className = "heading")
+    @FindBy(id = "locationSelect")
     private WebElement selectOption;
 
     @FindBy(id = "deleteInput")
@@ -40,7 +40,7 @@ public class HomePage extends ParentPOM{
 
     public HomePage(WebDriver driver, String title) {
         super(driver, title);
-        alertWait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        alertWait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
 
     public void goToHomePage() {
@@ -52,13 +52,17 @@ public class HomePage extends ParentPOM{
     }
 
     public void selectPlanet() {
-        Select dropdown = new Select(selectOption);
-        dropdown.selectByValue("planet");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("locationSelect")));
+        Select select = new Select(dropdown);
+        select.selectByValue("planet");
     }
 
     public void selectMoon() {
-        Select dropdown = new Select(selectOption);
-        dropdown.selectByValue("moon");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("locationSelect")));
+        Select select = new Select(dropdown);
+        select.selectByValue("moon");
     }
 
     public void enterPlanetName(String planet) {
@@ -92,4 +96,5 @@ public class HomePage extends ParentPOM{
     public void waitForAlert() {
         alertWait.until(ExpectedConditions.alertIsPresent());
     }
+
 }

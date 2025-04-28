@@ -3,10 +3,7 @@ package com.revature.steps;
 import static com.revature.TestRunner.*;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 
 public class RemoveCelestialSteps {
     @When("the user provides planet name {string} for deletion")

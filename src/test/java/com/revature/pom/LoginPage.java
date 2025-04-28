@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class LoginPage extends ParentPOM {
@@ -28,7 +27,7 @@ public class LoginPage extends ParentPOM {
 
     public LoginPage(WebDriver driver, String title) {
         super(driver, title);
-        alertWait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        alertWait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
 
     public void enterUsername(String username) {
